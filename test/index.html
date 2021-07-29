@@ -18,11 +18,11 @@
         import EngineTest from './test/EngineTest.js'
 
         const {
-            core: {describe, it, expect, run, beforeEach},
+            core: {describe, it, expect, run, beforeEach, jest},
             prettify,
         } = window.jestLite;
 
-        const register = test => test(describe, it, expect, beforeEach)
+        const register = test => test(describe, it, expect, beforeEach, jest)
         
         register(EngineTest)
         
