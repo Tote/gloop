@@ -1,5 +1,4 @@
-import GloopItem from "../gloop/GloopItem.js"
-import GloopCollection from "./GloopCollection.js"
+import GloopItem    from "./GloopItem.js"
 
 export default class PhysicItem extends GloopItem {
     constructor(){
@@ -23,10 +22,10 @@ export default class PhysicItem extends GloopItem {
 
     collidesWith( other ){
         
-        if (this.bottom() < other.top()
-            || this.top() > other.bottom()
-            || this.right() < other.left()
-            || this.left() > other.right()) {
+        if (this.bottom() <= other.top()
+            || this.top() >= other.bottom()
+            || this.right() <= other.left()
+            || this.left() >= other.right()) {
             return false
         } else {
             return true

@@ -12,10 +12,27 @@
             crossorigin
             src="http://unpkg.com/jest-lite@1.0.0-alpha.4/dist/prettify.js"
         ></script>
+        <style>
+            body{
+                background: black;
+            }
+            .jest-lite-report{
+                display: flex;
+                flex-direction: column;
+            }
+            .jest-lite-report__summary-status{
+                order:1
+            }
+            .jest-lite-report__result{
+                order:2
+            }
+        </style>
     </head>
     <body>
     <script type="module">
-        import EngineTest from './test/EngineTest.js'
+        import EngineTest           from './EngineTest.js'
+        import GloopItemTest        from './GloopItemTest.js'
+        import StaticOverlapTest    from './StaticOverlapTest.js'
 
         const {
             core: {describe, it, expect, run, beforeEach, jest},
@@ -25,8 +42,10 @@
         const register = test => test(describe, it, expect, beforeEach, jest)
         
         register(EngineTest)
+        register(GloopItemTest)
+        register(StaticOverlapTest)
         
-         prettify.toHTML(run(), document.body);
+        prettify.toHTML(run(), document.body);
     </script>
     </body>
 </html>
