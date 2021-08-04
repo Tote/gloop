@@ -33,6 +33,7 @@
         import EngineTest           from './EngineTest.js'
         import GloopItemTest        from './GloopItemTest.js'
         import StaticOverlapTest    from './StaticOverlapTest.js'
+        import MotionTest           from './MotionTest.js'
 
         const {
             core: {describe, it, expect, run, beforeEach, jest},
@@ -44,6 +45,7 @@
         register(EngineTest)
         register(GloopItemTest)
         register(StaticOverlapTest)
+        register(MotionTest)
         
         prettify.toHTML(run(), document.body);
     </script>

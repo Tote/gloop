@@ -7,17 +7,34 @@ export default class PhysicItem extends GloopItem {
         this.vy = 0
         this.ax = 0
         this.ay = 0
+        this.changedAx = false
+        this.changedAy = false
     }
 
     next(){
+        this.vx += this.changedAx? this.ax / 2 : this.ax
+        this.vy += this.changedAy? this.ay / 2 : this.ay
         this.x += this.vx
         this.y += this.vy
-        this.vx += this.ax
-        this.vy += this.ay
 
         this.restitution = 0.2
         this.threshold = 0.2
 
+        this.changedAx = this.changedAy = false
+    }
+
+    move({vx, vy, ax, ay}){
+        this.vx = vx ?? this.vx
+        this.vy = vy ?? this.vy
+        this.ax = ax ?? this.ax 
+        this.ay = ay ?? this.ay
+
+        if(ax !== undefined){
+            this.changedAx = true
+        }
+        if(ay !== undefined){
+            this.changedAy = true
+        }
     }
 
     collidesWith( other ){
