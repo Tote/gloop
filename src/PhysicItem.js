@@ -124,7 +124,7 @@ export default class PhysicItem extends GloopItem {
                 this.x = other.left() - this.w
             }
 
-            this.vx = - (this.vx * other.restitution)
+            this.vx = 0
             if( Math.abs(this.vx) < this.threshold){
                 this.vx = 0
             }

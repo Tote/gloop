@@ -15,13 +15,18 @@
         <style>
             body{
                 background: black;
+                height:100%;
             }
             .jest-lite-report{
                 display: flex;
                 flex-direction: column;
+                height:auto;
             }
             .jest-lite-report__summary-status{
-                order:1
+                order:1;
+                position: sticky;
+                top:0;
+                background-color: black;
             }
             .jest-lite-report__result{
                 order:2
@@ -30,10 +35,12 @@
     </head>
     <body>
     <script type="module">
-        import EngineTest           from './EngineTest.js'
-        import GloopItemTest        from './GloopItemTest.js'
-        import StaticOverlapTest    from './StaticOverlapTest.js'
-        import MotionTest           from './MotionTest.js'
+        import EngineTest               from './EngineTest.js'
+        import GloopItemTest            from './GloopItemTest.js'
+        import MotionTest               from './MotionTest.js'
+        import StaticOverlapTest        from './StaticOverlapTest.js'
+        import DynamicOverlapTest       from './DynamicOverlapTest.js'
+        import InellasticCollisionTest  from './InellasticCollisionTest.js'
 
         const {
             core: {describe, it, expect, run, beforeEach, jest},
@@ -44,8 +51,10 @@
         
         register(EngineTest)
         register(GloopItemTest)
-        register(StaticOverlapTest)
         register(MotionTest)
+        register(StaticOverlapTest)
+        register(DynamicOverlapTest)
+        register(InellasticCollisionTest)
         
         prettify.toHTML(run(), document.body);
     </script>

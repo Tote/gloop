@@ -35,8 +35,8 @@ export default class GloopItem{
     }
 
     moveTo({x, y}){
-        this.x = x,
-        this.y = y
+        this.x = x ?? this.x,
+        this.y = y ?? this.y
     }
 
     size({w, h}){
