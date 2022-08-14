@@ -13,6 +13,7 @@ export default class Graphics{
     color( color ){
         this.context.fillStyle = color
         this.context.strokeStyle = color
+        return this
     }
 
     pattern( image ){
