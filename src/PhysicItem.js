@@ -151,4 +151,12 @@ export default class PhysicItem extends GloopItem {
             right   : this.right()
         }
     }
+
+    distanceTo(other){
+        return Math.sqrt( (this.x - other.x)**2 + (this.y - other.y)**2 )
+    }
+
+    speed(){
+        return Math.sqrt(this.vx**2 + this.vy**2)
+    }
 }
